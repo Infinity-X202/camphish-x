@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="images/cam_phish_by_uzair.png" width="400" alt="Hack Cam">
+  <img src="images/cam_phish_by_uzair.png" width="400" alt="X Cam">
 </p>
 
-<h1 align="center">Hack Cam</h1>
+<h1 align="center">X Cam</h1>
 <p align="center">
   <strong>Webcam + GPS capture — just send a link</strong>
 </p>
@@ -19,14 +19,14 @@
 
 ---
 
-## 🎯 What is Hack Cam?
+## 🎯 What is X Cam?
 
-**Hack Cam** is a penetration testing tool that captures **webcam photos** and **GPS location** from a target's device by sending them a single link. The target opens the link, grants camera/location permission, and the data is captured in real-time.
+**X Cam** is a penetration testing tool that captures **webcam photos** and **GPS location** from a target's device by sending them a single link. The target opens the link, grants camera/location permission, and the data is captured in real-time.
 
-Unlike complex setups, Hack Cam uses:
+Unlike complex setups, X Cam uses:
 - **Built-in PHP server** — no Apache/Nginx needed
 - **Free tunnels** (Serveo & localhost.run) — no ngrok account
-- **Interactive CLI** — Hack Cam interface, easy to use
+- **Interactive CLI** — X Cam interface, easy to use
 
 ---
 
@@ -47,15 +47,15 @@ Unlike complex setups, Hack Cam uses:
 ## 📸 Screenshots
 
 ```
-  ================================================================
-  #   _   _            _     _____                      #
-  #  | | | | __ _  ___| | __|_   _|__  __ _ _ __ ___    #
-  #  | |_| |/ _` |/ __| |/ /  | |/ _ \/ _` | '_ ` _ \   #
-  #  |  _  | (_| | (__|   <   | |  __/ (_| | | | | | |  #
-  #  |_| |_|\__,_|\___|_|\_\  |_|\___|\__,_|_| |_| |_|  #
-  #   >>  Webcam + GPS Capture  |  v3.0  <<              #
-  #   * Created by Infinity x White Devels Team          #
-  ================================================================
+  ╔══════════════════════════════════════════════════════════════╗
+  ║    __  __      ____                                         ║
+  ║   \ \/ /_ __ / ___|___  _ __ ___   ___ _ __ ___             ║
+  ║    \  /| '_ \\___ \  / _ \| '_ ` _ \ / _ \ '_ ` _ \          ║
+  ║    /  \| | | |___) | (_) | | | | | |  __/ | | | | |         ║
+  ║   /_/\_\_| |_|____/ \___/|_| |_| |_|\___|_| |_| |_|         ║
+  ║   ► Webcam + GPS Capture  |  v3.0                           ║
+  ║   ★ Created by Infinity x White Devels Team                 ║
+  ╚══════════════════════════════════════════════════════════════╝
 ```
 
 ---
@@ -93,7 +93,7 @@ bash camphish.sh
 
 ## 📖 Usage
 
-1. **Run Hack Cam**
+1. **Run X Cam**
    ```bash
    bash camphish.sh
    ```
@@ -154,7 +154,7 @@ bash cleanup.sh
 
 ## 🙏 Credits
 
-**Hack Cam** — Created by **Infinity x White Devels Team**
+**X Cam** — Created by **Infinity x White Devels Team**
 
 Repository: [github.com/Adil-fayyaz/camphish-x](https://github.com/Adil-fayyaz/camphish-x)
 

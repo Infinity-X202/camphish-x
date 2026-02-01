@@ -1,7 +1,7 @@
 #!/bin/bash
 
 printf "\e[1;32m  ================================================================\e[0m\n"
-printf "\e[1;32m  #  Hack Cam - Easy Install - Infinity x White Devels Team       #\e[0m\n"
+printf "\e[1;32m  #  X Cam - Easy Install - Infinity x White Devels Team          #\e[0m\n"
 printf "\e[1;32m  ================================================================\e[0m\n\n"
 
 printf "\e[1;32m[+] Installing dependencies...\e[0m\n"
@@ -20,4 +20,4 @@ else
 fi
 
 chmod +x camphish.sh cleanup.sh 2>/dev/null
-printf "\e[1;32m[*] Run: bash camphish.sh (Hack Cam)\e[0m\n\n"
+printf "\e[1;32m[*] Run: bash camphish.sh (X Cam)\e[0m\n\n"
