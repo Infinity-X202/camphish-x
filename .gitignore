@@ -1,0 +1,24 @@
+# CamPhish - Ignore captured data and temp files
+cam*.png
+!images/*.png
+saved.ip.txt
+saved.locations.txt
+saved_locations/
+location_*.txt
+current_location.txt
+ip.txt
+sendlink
+serveo.log
+localhostrun.log
+Log.log
+LocationLog.log
+location_debug.log
+index.php
+index.html
+index2.html
+.monitor_pid
+times-opened.txt
+
+# OS
+.DS_Store
+Thumbs.db
