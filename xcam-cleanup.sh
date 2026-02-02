@@ -1,5 +1,5 @@
 #!/bin/bash
-# X Cam - Cleanup script
+# My Cam - Cleanup script
 # Created by Infinity x White Devels Team
 
 echo "Starting cleanup of unnecessary files and logs..."

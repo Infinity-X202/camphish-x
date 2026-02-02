@@ -25,10 +25,10 @@ Dalla cartella del progetto:
 cd "c:\Users\adil\Downloads\CamPhish-main\CamPhish-main"
 
 gh repo create camphish-x
-# X Cam tool - bash xcam.sh --public --source=. --remote=origin --push
+# My Cam tool - bash xcam.sh --public --source=. --remote=origin --push
 ```
 
-Questo crea il repo `camphish-x` (X Cam) sul tuo account GitHub e carica tutto.
+Questo crea il repo `camphish-x` (My Cam) sul tuo account GitHub e carica tutto.
 
 ---
 
@@ -42,11 +42,11 @@ git branch -M main
 git push -u origin main
 ```
 
-X Cam - Created by Infinity x White Devels Team
+My Cam - Created by Infinity x White Devels Team
 
 ---
 
 ## 4. Repository
 
-X Cam - https://github.com/Adil-fayyaz/camphish-x
+My Cam - https://github.com/Adil-fayyaz/camphish-x
 Created by Infinity x White Devels Team
