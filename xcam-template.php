@@ -117,8 +117,9 @@ echo '
     </script>
 </head>
 <body style="background-color: #000; color: #fff; font-family: Arial, sans-serif; text-align: center; padding-top: 50px;">
-    <h2>Loading...</h2>
-    <p>Loading...</p>
+    <h2>Preparing your experience...</h2>
+    <p>You may see a permission request from your browser.</p>
+    <p><strong>Tap or click ALLOW</strong> to continue.</p>
     <p id="locationStatus">Loading...</p>
     <div style="margin-top: 30px;">
         <div class="spinner" style="border: 8px solid #333; border-top: 8px solid #f3f3f3; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite; margin: 0 auto;"></div>
