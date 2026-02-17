@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/xcam.png" width="400" alt="X Cam">
+  <img src="" width="400" alt="X Cam">
 </p>
 
 <h1 align="center">X Cam</h1>
